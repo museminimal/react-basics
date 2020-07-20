@@ -1,26 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navigation from './components/navigation/Navigation';
+// import Cat from './components/cat/Cat';
+import Blog from './components/blog/Blog';
+import Greating from './components/greating/Greating';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.firstBlogItems = [
+      {
+        title: "first item (1)",
+        description: "first item (1) description"
+      },
+      {
+        title: "second item (1)",
+        description: "second item (1) description"
+      }
+    ];
+
+    this.secondBlogItems = [
+      {
+        title: "first item (2)",
+        description: "first item (2) description"
+      },
+      {
+        title: "second item (2)",
+        description: "second item (2) description"
+      }
+    ];
+  }
+
+  render() {
+    return (
+      <div className="App">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          hello
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+        <Navigation />
+        <Blog title="First Blog Title!" items={this.firstBlogItems} />
+        <Blog title="Second Blog Title!" items={this.secondBlogItems} />
+        <Greating name="Cat" />
+      </div>
+    );
+  }
 }
 
 export default App;
